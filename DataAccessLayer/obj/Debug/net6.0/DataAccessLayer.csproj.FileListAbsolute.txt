@@ -1,0 +1,12 @@
+C:\Users\kadir\source\repos\Web_UI\DataAccessLayer\bin\Debug\net6.0\DataAccessLayer.deps.json
+C:\Users\kadir\source\repos\Web_UI\DataAccessLayer\bin\Debug\net6.0\DataAccessLayer.dll
+C:\Users\kadir\source\repos\Web_UI\DataAccessLayer\bin\Debug\net6.0\DataAccessLayer.pdb
+C:\Users\kadir\source\repos\Web_UI\DataAccessLayer\obj\Debug\net6.0\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\kadir\source\repos\Web_UI\DataAccessLayer\obj\Debug\net6.0\DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kadir\source\repos\Web_UI\DataAccessLayer\obj\Debug\net6.0\DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\kadir\source\repos\Web_UI\DataAccessLayer\obj\Debug\net6.0\DataAccessLayer.AssemblyInfo.cs
+C:\Users\kadir\source\repos\Web_UI\DataAccessLayer\obj\Debug\net6.0\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\kadir\source\repos\Web_UI\DataAccessLayer\obj\Debug\net6.0\DataAccessLayer.dll
+C:\Users\kadir\source\repos\Web_UI\DataAccessLayer\obj\Debug\net6.0\refint\DataAccessLayer.dll
+C:\Users\kadir\source\repos\Web_UI\DataAccessLayer\obj\Debug\net6.0\DataAccessLayer.pdb
+C:\Users\kadir\source\repos\Web_UI\DataAccessLayer\obj\Debug\net6.0\ref\DataAccessLayer.dll
