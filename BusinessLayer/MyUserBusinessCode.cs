@@ -1,5 +1,6 @@
 ﻿using System.Data.SqlClient;
 using Web_UI.DataAccessLayer;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Web_UI.BusinessLayer
 {
@@ -117,6 +118,6 @@ namespace Web_UI.BusinessLayer
             int rowsAffected = sqlCommand.ExecuteNonQuery();
 
             return rowsAffected > 0;
-        }
+        }     
     }
 }

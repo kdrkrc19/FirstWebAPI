@@ -107,5 +107,40 @@ namespace BusinessLayer
 
             return rowsAffected > 0;
         }
+
+        public bool DeleteAllDiarys(int userId)
+        {
+            DbConnection dbConnection = new DbConnection();
+            dbConnection.OpenConnection();
+
+            string query = "DELETE FROM Diarys WHERE UserId = @UserID";
+
+            SqlCommand sqlCommand = dbConnection.CreateCommand(query);
+            sqlCommand.Parameters.AddWithValue("@UserId", userId);
+            int rowsAffected = sqlCommand.ExecuteNonQuery();
+
+            return (rowsAffected > 0);
+
+        }
+
+        public List<Diarys> GetAllDiaries()
+        {
+            List<Diarys> allDiaries = new List<Diarys>();
+            MyDiaryBusinessCode diaryBusinessCode = new MyDiaryBusinessCode();
+            List<DiaryFakeData> diaryDataList = diaryBusinessCode.ConvertDiaryEntityToDTO();
+
+            foreach (DiaryFakeData item in diaryDataList)
+            {
+                int diaryId = item.diaryId;
+                int userId = item.userId;
+                string diary = item.diary;
+                DateTime date = item.date;
+                DateTime updateDate = item.updateDate;
+
+                allDiaries.Add(new Diarys(diaryId, diary, date, updateDate, userId));
+            }
+
+            return allDiaries;
+        }
     }
 }

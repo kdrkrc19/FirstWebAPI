@@ -11,7 +11,7 @@ namespace Web_UI.Controllers
     [ApiController]
     public class DiaryController : ControllerBase
     {
-        [HttpGet("get-diary/{diaryId}")]
+        [HttpGet("get-diary/")]
         public Diarys GetDiary()
         {
             List<DiaryFakeData> diarys = new List<DiaryFakeData>();
@@ -22,7 +22,7 @@ namespace Web_UI.Controllers
             string diary = "";
             DateTime date = DateTime.MinValue;
             DateTime updateDate = DateTime.MinValue;
-
+            Diarys[] allDiarys = new Diarys[diarys.Count];
             foreach (DiaryFakeData item in diarys)
             {
                 diaryId = item.diaryId;
@@ -30,8 +30,32 @@ namespace Web_UI.Controllers
                 diary = item.diary;
                 date = item.date;
                 updateDate = item.updateDate;
+                return new Diarys(diaryId, diary, date, updateDate, userId);
             }
             return new Diarys(diaryId,diary,date,updateDate,userId);
+        }
+
+
+        [HttpGet("get-all-diaries/{userId}")]
+        public List<Diarys> GetAllDiaries()
+        {
+            List<DiaryFakeData> diaryDataList = new List<DiaryFakeData>();
+            MyDiaryBusinessCode diaryBusinessCode = new MyDiaryBusinessCode();
+            diaryDataList = diaryBusinessCode.ConvertDiaryEntityToDTO();
+
+            List<Diarys> allDiaries = new List<Diarys>();
+
+            foreach (DiaryFakeData item in diaryDataList)
+            {
+                int diaryId = item.diaryId;
+                int userId = item.userId;
+                string diary = item.diary;
+                DateTime date = item.date;
+                DateTime updateDate = item.updateDate;
+
+                allDiaries.Add(new Diarys(diaryId, diary, date, updateDate, userId));
+            }
+            return allDiaries;
         }
 
         [HttpPost("add-diary")]
@@ -69,5 +93,15 @@ namespace Web_UI.Controllers
             else return NotFound("Diary not found");
 
         }
+
+        [HttpDelete("delete-all-diarys{userId}")]
+        public IActionResult DeleteAllDiary(int userId)
+        {
+            MyDiaryBusinessCode businessCode = new MyDiaryBusinessCode();
+            bool isDeletedAll = businessCode.DeleteAllDiarys(userId);
+
+            if (isDeletedAll) return Ok("All Diarys Deleted Succesfully");
+            else return NotFound("Diary Not Found.");
+        }    
     }
 }
