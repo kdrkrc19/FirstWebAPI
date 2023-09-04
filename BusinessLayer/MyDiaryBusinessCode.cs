@@ -54,7 +54,7 @@ namespace BusinessLayer
             return diaryFakeDatas;
         }
 
-        public void AddDiary(Diarys diary)
+        public bool AddDiary(Diarys diary)
         {
             DbConnection dbConnection = new DbConnection();
             SqlConnection sqlConnection = dbConnection.OpenConnection();
@@ -68,7 +68,9 @@ namespace BusinessLayer
             sqlCommand.Parameters.AddWithValue("@UpdateDate", diary.updateDate);
             sqlCommand.Parameters.AddWithValue("@UserId", diary.userId);
 
-            sqlCommand.ExecuteNonQuery();
+            int rowsAffected = sqlCommand.ExecuteNonQuery();
+
+            return rowsAffected > 0;
         }
 
         public bool UpdateDiary(int diaryId,Diarys diary)
@@ -139,7 +141,6 @@ namespace BusinessLayer
 
                 allDiaries.Add(new Diarys(diaryId, diary, date, updateDate, userId));
             }
-
             return allDiaries;
         }
     }

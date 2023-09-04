@@ -1,0 +1,5 @@
+C:\Users\kadir\source\repos\Web_UI\MiddleWareLayer\obj\Debug\net7.0\MiddleWareLayer.csproj.AssemblyReference.cache
+C:\Users\kadir\source\repos\Web_UI\MiddleWareLayer\obj\Debug\net7.0\MiddleWareLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kadir\source\repos\Web_UI\MiddleWareLayer\obj\Debug\net7.0\MiddleWareLayer.AssemblyInfoInputs.cache
+C:\Users\kadir\source\repos\Web_UI\MiddleWareLayer\obj\Debug\net7.0\MiddleWareLayer.AssemblyInfo.cs
+C:\Users\kadir\source\repos\Web_UI\MiddleWareLayer\obj\Debug\net7.0\MiddleWareLayer.csproj.CoreCompileInputs.cache

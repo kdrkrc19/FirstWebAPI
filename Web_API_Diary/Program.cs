@@ -1,9 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
 using Web_UI.DataAccessLayer;
+using Web_UI.Models;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
+        
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.

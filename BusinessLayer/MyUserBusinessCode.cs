@@ -1,11 +1,14 @@
-﻿using System.Data.SqlClient;
+﻿using Microsoft.Extensions.Options;
+using System.Data.SqlClient;
 using Web_UI.DataAccessLayer;
+using Web_UI;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Web_UI.BusinessLayer
 {
     public class MyUserBusinessCode
     {
+        
         public List<Users> GetUserData()
         {
             List<Users> users = new List<Users>();
@@ -53,7 +56,7 @@ namespace Web_UI.BusinessLayer
             return usersFakeDatas;
         }
 
-        public void AddUser(Users user)
+        public bool AddUser(Users user)
         {
             DbConnection dbConnection = new DbConnection();
             SqlConnection sqlConnection = dbConnection.OpenConnection();
@@ -70,8 +73,8 @@ namespace Web_UI.BusinessLayer
             sqlCommand.Parameters.AddWithValue("@SecurityAnswer", user.securityAnswer);
             sqlCommand.Parameters.AddWithValue("@DateOfRegister", user.dateOfRegister);
 
-            sqlCommand.ExecuteNonQuery();
-
+            int rowsAffected = sqlCommand.ExecuteNonQuery();
+            return rowsAffected > 0;
         }
 
         public bool UpdateUser(int userId,Users user)
@@ -80,14 +83,14 @@ namespace Web_UI.BusinessLayer
             SqlConnection connection = dbConnection.OpenConnection();
 
             string query = "UPDATE Users SET " +
-                   "UserName = @UserName, " +
-                   "Password = @Password, " +
-                   "Name = @Name, " +
-                   "Surname = @Surname, " +
-                   "SecurityQuestion = @SecurityQuestion, " +
-                   "SecurityAnswer = @SecurityAnswer, " +
-                   "DateOfRegister = @DateOfRegister " +
-                   "WHERE UserId = @UserId";
+                           "UserName = @UserName, " +
+                           "Password = @Password, " +
+                           "Name = @Name, " +
+                           "Surname = @Surname, " +
+                           "SecurityQuestion = @SecurityQuestion, " +
+                           "SecurityAnswer = @SecurityAnswer, " +
+                           "DateOfRegister = @DateOfRegister " +
+                           "WHERE UserId = @UserId";
 
             SqlCommand sqlCommand = dbConnection.CreateCommand(query);
 
